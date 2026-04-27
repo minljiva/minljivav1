@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <title>Wishlist — Minljiva</title>
+  <link rel="icon" href="favicon-mini.png">
+</head>
+<body>
+
+  <header class="site-header" data-page="projets">
+    <a href="index.html"><img src="Minljiva.png" alt="Minljiva"></a>
+    <nav class="nav" id="main-nav"></nav>
+  </header>
+
+  <h1>Wishlist</h1>
+  <p class="subtitle">Tout ce qui fait envie</p>
+
+  <button class="btn-add" onclick="ouvrirModal()">+ Ajouter un article</button>
+
+  <div class="filter-bar">
+    <span class="filter-label">Par catégorie</span>
+    <button class="filter-btn active" onclick="setFiltre('all', this)">Tout</button>
+    <button class="filter-btn" onclick="setFiltre('plantes', this)">🌿 Plantes</button>
+    <button class="filter-btn" onclick="setFiltre('laine', this)">🧶 Laine & crochet</button>
+    <button class="filter-btn" onclick="setFiltre('vetements', this)">👗 Vêtements</button>
+    <button class="filter-btn" onclick="setFiltre('livres', this)">📚 Livres</button>
+    <button class="filter-btn" onclick="setFiltre('autre', this)">✨ Autre</button>
+
+    <span class="filter-label">Par priorité</span>
+    <button class="filter-btn active" onclick="setPrio('all', this)">Toutes</button>
+    <button class="filter-btn" onclick="setPrio('haute', this)">⭐ Haute</button>
+    <button class="filter-btn" onclick="setPrio('normale', this)">Normale</button>
+  </div>
+
+  <div class="count-bar" id="count"></div>
+  <div class="grid" id="grid">
+    <div class="loading">Chargement…</div>
+  </div>
+
+  <!-- MODAL AJOUT -->
+  <div class="overlay" id="overlay" onclick="fermerModalSiDehors(event)">
+    <div class="modal">
+      <h2>Nouvel article</h2>
+
+      <div class="field">
+        <label>Nom *</label>
+        <input type="text" id="inp-nom" placeholder="ex : Mélisse en pot, Drops Alpaca…" />
+      </div>
+
+      <div class="field">
+        <label>Catégorie *</label>
+        <select id="inp-cat">
+          <option value="plantes">🌿 Plantes</option>
+          <option value="laine">🧶 Laine & crochet</option>
+          <option value="vetements">👗 Vêtements</option>
+          <option value="livres">📚 Livres</option>
+          <option value="autre">✨ Autre</option>
+        </select>
+      </div>
+
+      <div class="field">
+        <label>Lien (URL ou site)</label>
+        <input type="text" id="inp-lien" placeholder="https://…" />
+      </div>
+
+      <div class="field">
+        <label>Prix estimé</label>
+        <input type="text" id="inp-prix" placeholder="ex : 12 €, ~30 €" />
+      </div>
+
+      <div class="field">
+        <label>Priorité</label>
+        <select id="inp-prio">
+          <option value="normale">Normale</option>
+          <option value="haute">⭐ Haute</option>
+        </select>
+      </div>
+
+      <div class="field">
+        <label>Notes</label>
+        <textarea id="inp-notes" placeholder="Coloris, taille, pourquoi je le veux…"></textarea>
+      </div>
+
+      <div class="modal-actions">
+        <button class="btn-secondary" onclick="fermerModal()">Annuler</button>
+        <button class="btn-save" onclick="ajouter()">Ajouter</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- PANNEAU DETAIL / EDIT -->
+  <div class="detail-overlay" id="detail-overlay" onclick="fermerDetail()"></div>
+  <div class="detail-panel" id="detail-panel">
+
+    <div class="detail-header">
+      <div class="header-top-row">
+        <div class="header-meta">
+          <div id="d-badge"></div>
+          <div id="d-prio-badge"></div>
+        </div>
+        <button onclick="fermerDetail()" class="btn-close-detail">✕</button>
+      </div>
+      <div class="plant-name detail-titre" id="d-nom-affiche"></div>
+    </div>
+
+    <div class="detail-section detail-section-first">
+      <div class="detail-label">Nom</div>
+      <input class="edit-input" type="text" id="d-nom" />
+    </div>
+
+    <div class="detail-section">
+      <div class="detail-label">Catégorie</div>
+      <select class="edit-input" id="d-cat">
+        <option value="plantes">🌿 Plantes</option>
+        <option value="laine">🧶 Laine & crochet</option>
+        <option value="vetements">👗 Vêtements</option>
+        <option value="livres">📚 Livres</option>
+        <option value="autre">✨ Autre</option>
+      </select>
+    </div>
+
+    <div class="detail-section">
+      <div class="detail-label">Lien</div>
+      <input class="edit-input" type="text" id="d-lien" />
+    </div>
+
+    <div class="detail-section">
+      <div class="detail-label">Prix estimé</div>
+      <input class="edit-input" type="text" id="d-prix" />
+    </div>
+
+    <div class="detail-section">
+      <div class="detail-label">Priorité</div>
+      <select class="edit-input" id="d-prio">
+        <option value="normale">Normale</option>
+        <option value="haute">⭐ Haute</option>
+      </select>
+    </div>
+
+    <div class="detail-section">
+      <div class="detail-label">Notes</div>
+      <textarea class="edit-textarea" id="d-notes"></textarea>
+    </div>
+
+    <button class="btn-secondary btn-edit-save-full" id="btn-detail-save" onclick="sauvegarder()">Enregistrer</button>
+    <div class="save-ok" id="save-ok" style="display:none;">✓ Enregistré</div>
+  </div>
+
+  <script src="scripts/WISHLIST.js"></script>
+  <script src="scripts/nav.js"></script>
+</body>
+</html>

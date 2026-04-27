@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <title>Convoitises — Minljiva</title>
+    <link rel="icon" href="favicon-mini.png">
+</head>
+<body>
+
+  <!-- HEADER -->
+    <header class="site-header" data-page="projets">
+    <a href="index.html"><img src="Minljiva.png" alt="Minljiva"></a>
+    <nav class="nav" id="main-nav"></nav>
+  </header>
+
+  <h1>Les choses que je convoites</h1>
+  <p class="subtitle">Ce que j'aimerais ajouter à ma collection</p>
+
+  <div class="filter-bar">
+    <span class="filter-label">Par usage</span>
+    <button class="filter-btn active" onclick="filterCat('all', this)">Toutes</button>
+    <button class="filter-btn" onclick="filterCat('prio', this)">Priorités</button>
+    <button class="filter-btn" onclick="filterCat('med', this)">Médicinales</button>
+    <button class="filter-btn" onclick="filterCat('imm', this)">Immunité</button>
+    <button class="filter-btn" onclick="filterCat('arom', this)">Aromatiques</button>
+    <button class="filter-btn" onclick="filterCat('adapt', this)">Adaptogènes</button>
+    <button class="filter-btn" onclick="filterCat('ete', this)">Été / froid</button>
+    <button class="filter-btn" onclick="filterCat('mel', this)">Mélanges</button>
+
+    <span class="filter-label">Par exposition</span>
+    <button class="filter-btn expo-btn active-all active" onclick="filterExpo('all', this)">Toutes expositions</button>
+    <button class="filter-btn expo-btn" onclick="filterExpo('est', this)">Est — soleil matin</button>
+    <button class="filter-btn expo-btn" onclick="filterExpo('ouest', this)">Ouest — soleil après-midi</button>
+    <button class="filter-btn expo-btn" onclick="filterExpo('ombre', this)">Ombragé / mi-ombre</button>
+  </div>
+
+  <div class="count-bar" id="count"></div>
+  <div class="grid" id="grid"></div>
+
+
+<script src="scripts/CONVOITISES.js"></script>
+  <script src="scripts/nav.js"></script>
+</body>
+</html>

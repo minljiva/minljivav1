@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <title>Recettes — Minljiva</title>
+</head>
+<body>
+
+  <header class="site-header" data-page="carnet">
+    <a href="index.html"><img src="Minljiva.png" alt="Minljiva"></a>
+    <nav class="nav" id="main-nav"></nav>
+  </header>
+
+  <h1>Recettes</h1>
+  <p class="subtitle">Le carnet — cuisine & tisanes</p>
+
+  <div class="filter-bar">
+    <span class="filter-label">Section</span>
+    <button class="filter-btn section-btn active" onclick="setSection('recettes', this)">Recettes</button>
+    <button class="filter-btn section-btn" onclick="setSection('tisanes', this)">Tisanes</button>
+  </div>
+
+  <div id="filters-recettes" class="filter-bar">
+    <span class="filter-label">Par type</span>
+    <button class="filter-btn active" onclick="filterType('all', this)">Toutes</button>
+    <button class="filter-btn" onclick="filterType('sale', this)">Salé</button>
+    <button class="filter-btn" onclick="filterType('sucre', this)">Sucré</button>
+    <button class="filter-btn" onclick="filterType('conserves', this)">Conserves & sirops</button>
+    <button class="filter-btn" onclick="filterType('boissons', this)">Boissons fraîches</button>
+    <span class="filter-label">Par temps</span>
+    <button class="filter-btn time-btn active" onclick="filterTime('all', this)">Tous</button>
+    <button class="filter-btn time-btn" onclick="filterTime('rapide', this)">Rapide</button>
+    <button class="filter-btn time-btn" onclick="filterTime('long', this)">Long / mijoté</button>
+    <button class="filter-btn time-btn" onclick="filterTime('mealprep', this)">Meal prep</button>
+  </div>
+
+  <div id="filters-tisanes" class="filter-bar">
+    <span class="filter-label">Par type</span>
+    <button class="filter-btn tcat-btn active" onclick="filterTCat('all', this)">Toutes</button>
+    <button class="filter-btn tcat-btn" onclick="filterTCat('solo', this)">Plantes seules</button>
+    <button class="filter-btn tcat-btn" onclick="filterTCat('melange', this)">Mélanges</button>
+    <button class="filter-btn tcat-btn" onclick="filterTCat('moment', this)">Par moment</button>
+    <button class="filter-btn tcat-btn" onclick="filterTCat('methode', this)">Comment préparer</button>
+    <span class="filter-label">Par effet</span>
+    <button class="filter-btn teffet-btn active" onclick="filterTEffet('all', this)">Tous effets</button>
+    <button class="filter-btn teffet-btn" onclick="filterTEffet('sommeil', this)">Sommeil</button>
+    <button class="filter-btn teffet-btn" onclick="filterTEffet('digestif', this)">Digestif</button>
+    <button class="filter-btn teffet-btn" onclick="filterTEffet('immunite', this)">Immunité</button>
+    <button class="filter-btn teffet-btn" onclick="filterTEffet('stress', this)">Anti-stress</button>
+    <button class="filter-btn teffet-btn" onclick="filterTEffet('detox', this)">Détox</button>
+    <button class="filter-btn teffet-btn" onclick="filterTEffet('froid', this)">Froid & hiver</button>
+  </div>
+
+  <div class="count-bar" id="count"></div>
+  <div id="grid"></div>
+
+<script src="scripts/RECETTES.js"></script>
+  <script src="scripts/nav.js"></script>
+</body>
+</html>

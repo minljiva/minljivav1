@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <title>Coding — Minljiva</title>
+</head>
+<body>
+
+  <!-- HEADER -->
+    <header class="site-header" data-page="learning">
+    <a href="index.html"><img src="Minljiva.png" alt="Minljiva"></a>
+    <nav class="nav" id="main-nav"></nav>
+  </header>
+
+  <h1>Coding</h1>
+  <p class="subtitle">Ce que j'apprends - <a href="COLORS.html">toutes les couleurs</a></p>
+
+  <div class="filter-bar">
+    <span class="filter-label">Par sujet</span>
+    <button class="filter-btn active" onclick="filterCat('all', this)">Tout</button>
+    <button class="filter-btn" onclick="filterCat('html', this)">HTML</button>
+    <button class="filter-btn" onclick="filterCat('css', this)">CSS</button>
+    <button class="filter-btn" onclick="filterCat('js', this)">JavaScript</button>
+    <button class="filter-btn" onclick="filterCat('github', this)">GitHub</button>
+    <button class="filter-btn" onclick="filterCat('bdd', this)">Base de données</button>
+    
+    <span class="filter-label">Par type</span>
+    <button class="filter-btn active-all active" onclick="filterType('all', this)">Tous types</button>
+    <button class="filter-btn" onclick="filterType('base', this)">Base</button>
+    <button class="filter-btn" onclick="filterType('astuce', this)">Astuce</button>
+    <button class="filter-btn" onclick="filterType('erreur', this)">Erreur fréquente</button>
+    <button class="filter-btn" onclick="filterType('routine', this)">Routine</button>
+  </div>
+
+  <div class="count-bar" id="count"></div>
+  <div class="grid" id="grid"></div>
+
+
+<script src="scripts/CODING.js"></script>
+  <script src="scripts/nav.js"></script>
+</body>
+</html>

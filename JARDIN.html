@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <title>Jardin — Minljiva</title>
+</head>
+<body>
+
+  <!-- HEADER -->
+    <header class="site-header" data-page="carnet">
+    <a href="index.html"><img src="Minljiva.png" alt="Minljiva"></a>
+    <nav class="nav" id="main-nav"></nav>
+  </header>
+
+  <h1>Plantes du balcon</h1>
+  <p class="subtitle">Ce qu'un herboriste saurait à leur propos</p>
+
+  <div class="filter-bar">
+    <button class="filter-btn active" onclick="filter('all', this)">Toutes</button>
+    <button class="filter-btn" onclick="filter('med', this)">Médicinales</button>
+    <button class="filter-btn" onclick="filter('cul', this)">Aromatiques</button>
+    <button class="filter-btn" onclick="filter('fruit', this)">Fruitières</button>
+    <button class="filter-btn" onclick="filter('orn', this)">Ornementales</button>
+  </div>
+
+  <div class="count-bar" id="count"></div>
+  <div class="grid" id="grid"></div>
+
+
+<script src="scripts/JARDIN.js"></script>
+  <script src="scripts/nav.js"></script>
+</body>
+</html>

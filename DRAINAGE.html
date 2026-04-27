@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <title>Drainage</title>
+</head>
+<body>
+
+  <!-- HEADER -->
+    <header class="site-header" data-page="carnet">
+    <a href="index.html"><img src="Minljiva.png" alt="Minljiva"></a>
+    <nav class="nav" id="main-nav"></nav>
+  </header>
+
+
+<h1>Drainage lymphatique</h1>
+<p class="subtitle">Se faire du bien</p>
+
+  <div class="filter-bar">
+    <span class="filter-label">Par sujet</span>
+  <button class="filter-btn active" onclick="filter('all', this)">Tout</button>
+  <button class="filter-btn" onclick="filter('rapide', this)">Rapide quotidien</button>
+  <button class="filter-btn" onclick="filter('deep', this)">Hebdo profond</button>
+  <button class="filter-btn" onclick="filter('haut', this)">Haut du corps</button>
+  <button class="filter-btn" onclick="filter('bas', this)">Bas du corps</button>
+</div>
+
+  <div class="count-bar" id="count"></div>
+<div id="app"></div>
+
+
+<script src="scripts/DRAINAGE.js"></script>
+  <script src="scripts/nav.js"></script>
+</body>
+</html>
